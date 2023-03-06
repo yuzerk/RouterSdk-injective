@@ -1,0 +1,27 @@
+ChainID = "5"
+
+# router config
+RouterConfigFile = "XXXXXX"
+InitRouterServer = false
+
+# listen port
+Port = 12556
+
+# CORS config
+AllowedOrigins = []
+
+# Maximum number of request limit per second
+MaxRequestsLimit = 10
+
+# session tokens
+[[SessionTokens]]
+Token = "0x1111111111111111111111111111111111111111111111111111111111111111"
+User = "user1"
+Salt = "11111"
+
+[GatewayConfig]
+APIAddress = ["https://xxxx.xxx"]
+APIAddressExt = []
+EVMAPIAddress = []
+FinalizeAPIAddress = []
+GRPCAPIAddress = []
