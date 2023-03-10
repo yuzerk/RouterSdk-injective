@@ -1,21 +1,22 @@
 # RouterSDK-injective
 
-1) chainId
+## resources
 
-mainnet: 1019511453253
-testnet: 1019511453254
+1) document
+
+<https://docs.injective.network/>
 
 2) apiUrl
 
-testnet (tendermint rpc): https://testnet.tm.injective.network:443
+testnet (tendermint rpc): <https://testnet.tm.injective.network:443>
 
 3) explorer:
 
-https://testnet.explorer.injective.network/
+<https://testnet.explorer.injective.network/>
 
 4) faucet:
 
-https://inj.supply/
+<https://inj.supply/>
 
 ## tools
 
@@ -25,7 +26,10 @@ https://inj.supply/
 go run ./tools/getStubChainID/main.go -p testnet
 ```
 
+```text
+mainnet: 1019511453253
 testnet: 1019511453254
+```
 
 2) publicKeyToAddress
 
@@ -52,10 +56,61 @@ extra: format is `inj:inj`
 
 for meta coin,
 
-        tokenAddress: inj
-        decimals: 6
+```text
+tokenAddress: inj
+decimals: 6
+```
 
 for other tokens,
 
-        tokenAddress: factory/{creator}/{subdenom}
-        decimals: 6 (maybe other value)
+```text
+tokenAddress: factory/{creator}/{subdenom}
+decimals: 6 (maybe other value)
+```
+
+## sdk rpc test
+
+1) start chain support program
+
+```shell
+./build/bin/injective-chain-support -c config.toml
+```
+
+2) test rpc calling
+
+the rpc api is still under developing,
+please reference the source code file `server/rpcapi.go` for the api methods
+and the arguments and response type of each api method.
+
+for example,
+
+- call `GetLatestBlockNumber`
+
+```shell
+curl -sS -X POST -H "Content-Type:application/json" --data '{"jsonrpc":"2.0", "method":"bridge.GetLatestBlockNumber", "params":[], "id":1}' http://127.0.0.1:12556
+```
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": 9038879,
+  "id": 1
+}
+```
+
+- call `GetTransactionStatus`
+
+```shell
+curl -sS -X POST -H "Content-Type:application/json" --data '{"jsonrpc":"2.0", "method":"bridge.GetTransactionStatus", "params":["768F66E059D1D2BFF5FD9F4A440DA8F32FAC4D64B2F45A32D66EEC69080DB103"], "id":1}' http://127.0.0.1:12556
+```
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "confirmations": 999,
+    "block_height": 9037827
+  },
+  "id": 1
+}
+```

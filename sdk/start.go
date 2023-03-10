@@ -51,6 +51,9 @@ func InitAfterLoad() {
 	cfg := config.GetServerConfig()
 	chainID := cfg.ChainID
 	wbr := router.GetBridgeByChainID(chainID)
+	if wbr == nil {
+		log.Fatal("bridge is not init", "chainID", chainID)
+	}
 
 	chainCfg := wbr.GetChainConfig()
 	b.SetChainConfig(chainCfg)
