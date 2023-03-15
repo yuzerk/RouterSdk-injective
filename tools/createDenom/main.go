@@ -29,7 +29,6 @@ var (
 	paramSequence   uint64
 	paramPublicKey  string
 	paramPrivateKey string
-	paramUseGrpc    bool
 
 	chainID   = big.NewInt(0)
 	mpcConfig *mpc.Config
@@ -187,12 +186,11 @@ func initFlags() {
 	flag.StringVar(&paramSender, "sender", "", "token creater")
 	flag.StringVar(&paramDenom, "denom", "", "token denom")
 	flag.StringVar(&paramMemo, "memo", "", "transaction memo")
-	flag.StringVar(&paramFee, "fee", "", "transaction fee")
+	flag.StringVar(&paramFee, "fee", "1inj", "transaction fee")
 	flag.Uint64Var(&paramGasLimit, "gasLimit", paramGasLimit, "gas limit")
 	flag.Uint64Var(&paramSequence, "sequence", paramSequence, "sequence number")
 	flag.StringVar(&paramPublicKey, "publicKey", "", "public Key")
 	flag.StringVar(&paramPrivateKey, "privateKey", "", "private key")
-	flag.BoolVar(&paramUseGrpc, "grpc", paramUseGrpc, "use grpc call")
 
 	flag.Parse()
 
@@ -204,7 +202,7 @@ func initFlags() {
 		chainID = cid
 	}
 
-	log.Info("init flags finished", "useGrpc", paramUseGrpc)
+	log.Info("init flags finished")
 }
 
 func initConfig() {
@@ -220,9 +218,6 @@ func initConfig() {
 func initBridge() {
 	cfg := params.GetRouterConfig()
 	apiAddrs := cfg.Gateways[chainID.String()]
-	if len(apiAddrs) == 0 {
-		log.Fatal("gateway not found for chain ID", "chainID", chainID)
-	}
 	apiAddrsExt := cfg.GatewaysExt[chainID.String()]
 	grpcAPIs := cfg.GRPCGateways[chainID.String()]
 	bridge.SetGatewayConfig(&tokens.GatewayConfig{
@@ -230,6 +225,7 @@ func initBridge() {
 		APIAddressExt:  apiAddrsExt,
 		GRPCAPIAddress: grpcAPIs,
 	})
+	log.Infof("gateway config is %v", common.ToJSONString(bridge.GetGatewayConfig(), false))
 	bridge.SetChainConfig(&tokens.ChainConfig{
 		ChainID: chainID.String(),
 	})
