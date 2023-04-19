@@ -69,8 +69,12 @@ func (b *Bridge) GetLatestBlockNumberOf(apiAddress string) (uint64, error) {
 }
 
 func (b *Bridge) GetChainID() (string, error) {
+	if b.ChainName != "" {
+		return b.ChainName, nil
+	}
 	if result, err := b.GRPCGetChainID(); err == nil {
-		return result, nil
+		b.ChainName = result
+		return b.ChainName, nil
 	} else if len(b.AllGatewayURLs) == 0 {
 		return "", err
 	}
@@ -79,7 +83,8 @@ func (b *Bridge) GetChainID() (string, error) {
 	for _, url := range b.AllGatewayURLs {
 		restApi := joinURLPath(url, LatestBlock)
 		if err = client.RPCGet(&result, restApi); err == nil {
-			return result.Block.Header.ChainID, nil
+			b.ChainName = result.Block.Header.ChainID
+			return b.ChainName, nil
 		}
 	}
 	return "", wrapRPCQueryError(err, "GetChainID")

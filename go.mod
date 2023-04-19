@@ -4,8 +4,8 @@ go 1.18
 
 require (
 	github.com/BurntSushi/toml v1.2.1
-	github.com/InjectiveLabs/sdk-go v1.46.0
-	github.com/anyswap/CrossChain-Router/v3 v3.6.3-0.20230306063209-a1a11843724d
+	github.com/InjectiveLabs/sdk-go v1.46.4
+	github.com/anyswap/CrossChain-Router/v3 v3.6.3-0.20230412103600-2175706f8812
 	github.com/btcsuite/btcd v0.22.1
 	github.com/cosmos/cosmos-sdk v0.45.11
 	github.com/didip/tollbooth/v6 v6.1.2

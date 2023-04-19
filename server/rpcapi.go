@@ -107,7 +107,7 @@ func (b *ChainSupportAPI) VerifyTransaction(r *http.Request, args *[]interface{}
 }
 
 // BuildRawTransaction build tx with specified args.
-func (b *ChainSupportAPI) BuildRawTransaction(r *http.Request, args *[]interface{}, result *interface{}) error {
+func (b *ChainSupportAPI) BuildRawTransaction(r *http.Request, args *[]interface{}, result *wrapper.BuildTxResult) error {
 	if !routersdk.BridgeInited {
 		return errBridgeNotInited
 	}
@@ -123,7 +123,10 @@ func (b *ChainSupportAPI) BuildRawTransaction(r *http.Request, args *[]interface
 	if err != nil {
 		return err
 	}
-	*result = rawTx
+	*result = wrapper.BuildTxResult{
+		RawTx: rawTx,
+		Extra: buildArgs.Extra,
+	}
 	return nil
 }
 
@@ -152,13 +155,8 @@ func (b *ChainSupportAPI) VerifyMsgHash(r *http.Request, args *[]interface{}, re
 	return nil
 }
 
-type SignTxResult struct {
-	SignedTx interface{} `json:"signedTx"`
-	TxHash   string      `json:"txhash"`
-}
-
 // MPCSignTransaction mpc sign tx.
-func (b *ChainSupportAPI) MPCSignTransaction(r *http.Request, args *[]interface{}, result *SignTxResult) error {
+func (b *ChainSupportAPI) MPCSignTransaction(r *http.Request, args *[]interface{}, result *wrapper.SignTxResult) error {
 	if !routersdk.BridgeInited {
 		return errBridgeNotInited
 	}
@@ -179,7 +177,7 @@ func (b *ChainSupportAPI) MPCSignTransaction(r *http.Request, args *[]interface{
 	if err != nil {
 		return err
 	}
-	*result = SignTxResult{
+	*result = wrapper.SignTxResult{
 		SignedTx: signedTx,
 		TxHash:   txHash,
 	}

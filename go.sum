@@ -55,8 +55,8 @@ github.com/ChainSafe/go-schnorrkel v0.0.0-20200405005733-88cbf1b4c40d/go.mod h1:
 github.com/DataDog/datadog-go v3.2.0+incompatible/go.mod h1:LButxg5PwREeZtORoXG3tL4fMGNddJ+vMq1mwgfaqoQ=
 github.com/InjectiveLabs/cosmos-sdk v0.45.11-inj-3 h1:WGU6mfX2L195zUx8MxUK0DCvi9ro2VhaV+mN8nUzYhw=
 github.com/InjectiveLabs/cosmos-sdk v0.45.11-inj-3/go.mod h1:knmcuR38eVg8I8U+AYhTtSLtcsHzYCROaUCbNcUgfDU=
-github.com/InjectiveLabs/sdk-go v1.46.0 h1:5NdtaSoGHA1Jd1VaVDCnk75kSO9KIVC3n0RK538G8Qk=
-github.com/InjectiveLabs/sdk-go v1.46.0/go.mod h1:mYmXl6+ASh2Ovsb3qZKiPChX/srImuUajZRIw94E0I8=
+github.com/InjectiveLabs/sdk-go v1.46.4 h1:Ly+h5n/xNMR/zb5cAPnP4gI+Za2nX6DI3sivFPOKqAg=
+github.com/InjectiveLabs/sdk-go v1.46.4/go.mod h1:mYmXl6+ASh2Ovsb3qZKiPChX/srImuUajZRIw94E0I8=
 github.com/OneOfOne/xxhash v1.2.2 h1:KMrpdQIwFcEqXDklaen+P1axHaj9BSKzvpUUfnHldSE=
 github.com/OneOfOne/xxhash v1.2.2/go.mod h1:HSdplMjZKSmBqAxg5vPj2TmRDmfkzw+cTzAElWljhcU=
 github.com/StackExchange/wmi v1.2.1 h1:VIkavFPXSjcnS+O8yTq7NI32k0R5Aj+v39y29VYDOSA=
@@ -71,8 +71,8 @@ github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf/go.mod h1:ybxpYRF
 github.com/alecthomas/units v0.0.0-20190717042225-c3de453c63f4/go.mod h1:ybxpYRFXyAe+OPACYpWeL0wqObRcbAqCMya13uyzqw0=
 github.com/alecthomas/units v0.0.0-20190924025748-f65c72e2690d/go.mod h1:rBZYJk541a8SKzHPHnH3zbiI+7dagKZ0cgpgrD7Fyho=
 github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kdvxnR2qWY=
-github.com/anyswap/CrossChain-Router/v3 v3.6.3-0.20230306063209-a1a11843724d h1:+y9xeetUdBKkWF57tbyZQ+zMNeQPIbThKNUFjj+fyEU=
-github.com/anyswap/CrossChain-Router/v3 v3.6.3-0.20230306063209-a1a11843724d/go.mod h1:5cEiC7QnFwSFPFJpQY5uWnbEs1bdxJ14mzXq8/4qK84=
+github.com/anyswap/CrossChain-Router/v3 v3.6.3-0.20230412103600-2175706f8812 h1:1X9GOAt7Ixq8QMNGAPrNwjWvLNnU73sk00mmVAOhXAs=
+github.com/anyswap/CrossChain-Router/v3 v3.6.3-0.20230412103600-2175706f8812/go.mod h1:5cEiC7QnFwSFPFJpQY5uWnbEs1bdxJ14mzXq8/4qK84=
 github.com/armon/consul-api v0.0.0-20180202201655-eb2c6b5be1b6/go.mod h1:grANhF5doyWs3UAsr3K4I6qtAmlQcZDesFNEHPZAzj8=
 github.com/armon/go-metrics v0.4.0 h1:yCQqn7dwca4ITXb+CbubHmedzaQYHhNhrEXLYUeEe8Q=
 github.com/armon/go-metrics v0.4.0/go.mod h1:E6amYzXo6aW1tqzoZGT755KkbgrJsSdpwZ+3JqfkOG4=

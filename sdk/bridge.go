@@ -31,6 +31,9 @@ type Bridge struct {
 
 	Prefix string
 	Denom  string
+
+	//cache GetChainId rpc call result
+	ChainName string
 }
 
 // NewCrossChainBridge new bridge
