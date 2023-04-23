@@ -70,7 +70,10 @@ func run(ctx *cli.Context) error {
 	server.StartAPIServer()
 
 	bridge.IsWrapperMode = true
-	bridge.InitRouterBridges(initRouterServer)
+	filterChainIds := make([]string, 2)
+	filterChainIds = append(filterChainIds, config.GetServerConfig().RouterConfigChainId)
+	filterChainIds = append(filterChainIds, config.GetServerConfig().ChainID)
+	bridge.InitRouterBridgesWithFilterChain(initRouterServer, filterChainIds)
 	bridge.StartReloadRouterConfigTask()
 
 	routersdk.InitAfterLoad()

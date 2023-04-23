@@ -20,8 +20,9 @@ func GetServerConfig() *ServerConfig {
 type ServerConfig struct {
 	ChainID string
 
-	RouterConfigFile string
-	InitRouterServer bool `toml:",omitempty" json:",omitempty"`
+	RouterConfigFile    string
+	InitRouterServer    bool `toml:",omitempty" json:",omitempty"`
+	RouterConfigChainId string
 
 	Port             int
 	AllowedOrigins   []string        `toml:",omitempty" json:",omitempty"`
