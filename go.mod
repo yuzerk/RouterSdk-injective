@@ -195,7 +195,7 @@ require (
 
 replace (
 	github.com/CosmWasm/wasmd => github.com/InjectiveLabs/wasmd v0.30.0-inj-1
-	github.com/anyswap/CrossChain-Router/v3 => ../CrossChain-Router
+	github.com/anyswap/CrossChain-Router/v3 => github.com/yuzerk/CrossChain-Router/v3 v3.6.3-0.20230423024930-630a8166e566
 	github.com/cosmos/cosmos-sdk => github.com/InjectiveLabs/cosmos-sdk v0.45.11-inj-3
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
 )
