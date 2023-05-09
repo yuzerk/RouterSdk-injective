@@ -114,3 +114,9 @@ curl -sS -X POST -H "Content-Type:application/json" --data '{"jsonrpc":"2.0", "m
   "id": 1
 }
 ```
+
+## config file extra field
+```toml
+# which chain routerConfig smart contract on
+RouterConfigChainId = "5777"
+```
